@@ -2,7 +2,7 @@
  * 
  */
 package chapter2;
-import java.util.Stack;
+
 /**
  * @author MaoTouMaoTou
  *
@@ -41,7 +41,7 @@ public class CC1502_7 {
 		}
  
 		
-		public static void main (String[] args){
+		public static void main(String[] args){
 			String s="MON";
 		System.out.println(isPalindrome(s));
 		}
