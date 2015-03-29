@@ -6,7 +6,7 @@ package chapter1;
  *
  */
 public class CC1501_6 {
-	public static void rotateMat(int[][] matrix){
+	public static int[][] rotateMat(int[][] matrix){
 		int n = matrix.length;//n*n matrix
 		for(int layer = 0;layer<n/2;layer++){//we only need to move  n/2 layer
 			int first = layer;
@@ -21,6 +21,8 @@ public class CC1501_6 {
 				matrix[last][last-offset] = matrix[i][last];//right to bottom
 				matrix[i][last] = top;//top to right
 			}
+		}
+		return matrix;
 	        }
 	public static void main(String[] args){
 		int[][]matrix1 = {{1,2},{3,4},{5,6},{7,8}};
