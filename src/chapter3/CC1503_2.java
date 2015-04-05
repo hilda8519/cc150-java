@@ -3,56 +3,42 @@
  */
 package chapter3;
 
-import java.util.Stack;
-
 /**
  * @author MaoTouMaoTou
  *
  */
 public class CC1503_2 {
-	public class StackwithMin extends Stack<Integer>{
-		Stack<Integer> s2;//define stack s2 as the request stack
-		public StackwithMin(){
-			s2 = new Stack<Integer>();
-		}
-	public void push(int value){
-		if(value<=min()){
-			s2.push(value);
-		}
-	super.push(value);
-	}
-	public Integer pop(){
-		int value = super.pop();
-		if(value == min()){
-			s2.pop();
-		}
-	    return value;
-	}
-	
-	public int min(){
-		if(s2.isEmpty()){
-			return Integer.MAX_VALUE;
-		}
-		else{
-			return s2.peek();
-		}
-	}
-	}
-	public static void main(String[] args) {
-		StackwithMin stack = new StackwithMin();
-		StackwithMin2 stack2 = new StackwithMin2();
-		for (int i = 0; i < 15; i++) {
-			int value = AssortedMethods.randomIntInRange(0, 100);
-			stack.push(value);
-			stack2.push(value);
-			System.out.print(value + ", ");
-		}
-		System.out.println('\n');
-		for (int i = 0; i < 15; i++) {
-			System.out.println("Popped " + stack.pop().value + ", " + stack2.pop());
-			System.out.println("New min is " + stack.min() + ", " + stack2.min());
-		}
-
-	}
-
+	 int stackSize=150;
+     int[] buffer=new int[stackSize*3];
+     int[] stackPointer={-1,-1,-1};
+     
+     void push(int stackNumber, int value) throws Excpetion{
+    	 if(StackPointer[stackNumber]+1>=stackSize){
+    		 throw new Exception("out of space");
+    		 
+    	 stackPointer[stackNumber]++;
+    	 buffer[absTopOfStack(stackNumber)]=value;
+    	 }
+    	 int pop(int stackNumber) throws Exception{
+    		 if(stackPointer[stackNum]==-1){
+    			 throw new Exception("enmpty stack");
+    			 }
+    		 int value=buffer[absTopOfStack(stackNumber)];
+    		 buffer[absTopOfStack(stackNum)]=0;
+    		 stackPointer[stackNumber]--;
+    		 return value;
+    	 }
+     int peek(int stackNum){
+    	 int index=absTopOfStack(stackNum);
+    	 return buffer[index];
+     }
+     boolean isEmpty(int stackNumber){
+    	 return stackPointer[stackNumber]==-1;
+    	 
+     }
+     int absTopOfStack(int stackNumber){
+    	 return stackNumber*stackSize+stackPointer[stackNumber];
+     }
+     }
+ 
 }
